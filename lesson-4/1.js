@@ -9,35 +9,30 @@
  * - Свойство salary обязательно должно быть геттером.
  */
 
-// const person = {};
+const person = {};
 
 // Решение
 
-const person = {
+Object.defineProperties(person, {
+  salary: {
+    get() {
+      const date = new Date();
+      const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+      const days = date.getDate();
 
-  salary: 'good salary',
-
-  set getSalary (getSalary) {
-    return this.salary = getSalary;
-  },
-
-  get getSalary () {
-    return `${this.salary}`;
+      if(  (lastDay - days) < 20  ) {
+          return 'bad salary';
+        } else {
+          return 'good salary';
+        }
+    }
   }
-
-}
-
-let today = new Date();
-let lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-let days = today.getDate();
-
-if(  (lastDay - days) < 20  ) {
-  person.getSalary = 'bad salary';
-  console.log(person.getSalary);
-} else {
-  console.log(person.getSalary);
-}
+});
+console.log(person.salary);
 
 
+person.salary; // good salary
+
+// exports.person = person;
 
 

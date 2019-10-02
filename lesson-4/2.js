@@ -16,43 +16,30 @@
  * - Свойство salary обязательно должно быть геттером.
  */
 
-// const person = {};
+const person = {};
 
 // Решение
 
-let today = new Date();
-let days = today.getDate();
-
-const person = {
-
-  rate: '',
-  salary: days,
-
-  set getSalary (personNumber) {
-    if (personNumber === 0) {
-      return this.salary = 0;
-    }
-
-    return this.salary = personNumber * days;
+Object.defineProperties(person, {
+  rate: {
+    value: 0,
+    writable: true
   },
+  salary: {
+    get() {
+      const date = new Date();
+      const today = date.getDate();
 
-  get getSalary () {
-    return this.salary;
+      if (typeof person.rate === 'number' && person.rate > 0) {
+        return person.rate * today;
+      } else {
+        return 0;
+      }
+    }
   }
-
-}
-
-Object.defineProperty(person, 'rate', {
-  enumerable: false,
-  configurable: false
 });
 
-Object.defineProperty(person, 'salary', {
-  enumerable: false,
-  configurable: false
-});
-
-person.getSalary = 30;
+person.rate = 30;
 
 // Предположим что сегодня 10 января, в этом случае это свойство возвращает число 300
-console.log(person.getSalary);
+console.log(person.salary);
