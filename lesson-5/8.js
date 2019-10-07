@@ -17,10 +17,9 @@
 
 // Решение
 
-let i = 0;
+
 
 function f(arr) {
-  console.log(arr);
 
   if ( !(Array.isArray(arr)) ){
     throw new Error('argument is not array')
@@ -30,17 +29,23 @@ function f(arr) {
     throw new Error('array is empty')
   }
 
-  if (i < arr.length) {
-    let removed = arr.splice(0, 1);
+  function recurs(arr) {
 
-    console.log(removed);
-    
-    i++;
-    f();
+    if (arr.length > 1) {
+      console.log(arr.splice(0, 1));
+      recurs(arr);
+
+    } else {
+      console.log(arr); 
+    }
+
   }
+  recurs(arr);
+
 }
 
 f([1, 2, 3]);
+
 // 1
 // 2
 // 3
