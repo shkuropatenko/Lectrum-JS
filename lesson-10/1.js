@@ -22,13 +22,33 @@
 
 // Решение
 
-function bind(func, oliver, arg, arg2) {
-  // this.oliver = oliver.name;
-  // console.log(oliver.name)
-  // this.func = oliver;
-  // console.log(func.apply(this.oliver))
-  // console.log(func(oliver.name))
-  // console.log(func.apply(oliver.func()));
+// function bind(func, oliver, arg, arg2) {
+//   // this.oliver = oliver.name;
+//   // console.log(oliver.name)
+//   // this.func = oliver;
+//   // console.log(func.apply(this.oliver))
+//   // console.log(func(oliver.name))
+//   // console.log(func.apply(oliver.func()));
+  
+//   if (typeof func !== 'function') {
+//     throw new Error ('First param is not a function!'); 
+//   }
+
+//   if (typeof oliver !== 'object') {
+//     throw new Error ('Second param is not a object!'); 
+//   }
+
+//   if (Array.isArray(oliver)) {
+//     throw new Error ('Second param is a Array!'); 
+//   }
+
+//   return function() {
+//     this.oliver = oliver.name;
+//     return func(arg, arg2, this.oliver)
+//   }
+// }
+
+const bind = (func, context, ...rest) => {
   
   if (typeof func !== 'function') {
     throw new Error ('First param is not a function!'); 
@@ -42,11 +62,8 @@ function bind(func, oliver, arg, arg2) {
     throw new Error ('Second param is a Array!'); 
   }
 
-  return function() {
-    this.oliver = oliver.name;
-    return func(arg, arg2, this.oliver)
-  }
-}
+  return () => func.apply(context, rest);
+};
 
 function getName(greeting, message) {
   return `${greeting} ${message} ${this.name}.`;

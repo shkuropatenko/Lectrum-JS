@@ -18,23 +18,23 @@
  */
 
 // Решение
-function calculate (result) {
-  const arg = arguments;
-  console.log(arg)
+function calculate (...functions) {
 
+  let prevResult = null;
+
+  functions.forEach(func => {
   
-  for (const res of arg) {
-    console.log(res())
-    console.log(this)
-    
-  }
-  return result()
+    prevResult = func(prevResult);
+  });
+
+  return prevResult
 }
 const result = calculate(
   () => {
       return 7;
   },
   prevResult => {
+    
       return prevResult + 4;
   },
   prevResult => {
