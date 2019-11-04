@@ -24,7 +24,11 @@ const createNumberGenerator = () => {
   const DIFF = MAX - MIN;
 
   const generator = () => {
+<<<<<<< HEAD
     const numFloor = Math.floor(Math.random() * (MAX - MIN)) + MIN;
+=======
+    let numFloor = Math.floor(Math.random() * (MAX - MIN)) + MIN;
+>>>>>>> 48e7ab7f5caf85f44e169d2e3269b1ddf860e7aa
 
     if (arr.length >= DIFF) {
       throw new Error (`Функция была вызвана, когда доступные для выведения числа закончились`)

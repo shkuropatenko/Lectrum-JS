@@ -22,6 +22,7 @@
 
 // Решение
 
+<<<<<<< HEAD
 // function bind(func, oliver, arg, arg2) {
 //   // this.oliver = oliver.name;
 //   // console.log(oliver.name)
@@ -48,6 +49,8 @@
 //   }
 // }
 
+=======
+>>>>>>> 48e7ab7f5caf85f44e169d2e3269b1ddf860e7aa
 const bind = (func, context, ...rest) => {
   
   if (typeof func !== 'function') {

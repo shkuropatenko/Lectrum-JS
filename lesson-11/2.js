@@ -16,7 +16,11 @@ const createFibonacciGenerator = () => {
   let b = 0;
   
   const generator = () => {
+<<<<<<< HEAD
     const c = a + b;
+=======
+    let c = a + b;
+>>>>>>> 48e7ab7f5caf85f44e169d2e3269b1ddf860e7aa
     a = b;
     b = c;
 

@@ -71,7 +71,11 @@ function createLogger() {
         }
         stack.push(newObj);
 
+<<<<<<< HEAD
         return;
+=======
+        return undefined;
+>>>>>>> 48e7ab7f5caf85f44e169d2e3269b1ddf860e7aa
       }
 
       return num;
