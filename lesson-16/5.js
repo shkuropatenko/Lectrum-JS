@@ -32,7 +32,7 @@ class User {
     }
 }
 class Student extends User {
-    constructor(firstName, lastName, year,) {
+    constructor(firstName, lastName, year) {
         super(firstName, lastName);
         this.year = year;
         this.now = new Date().getFullYear();
