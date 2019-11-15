@@ -25,11 +25,10 @@ function postpone(start, end, delay) {
         }
     }
     
-    let timerId = setTimeout(function tick() {
+    let timerId = setTimeout( () => {
         if (start < end) {
             for(let i = start; i <= end; i++) {
                 console.log(i);
-                clearTimeout(timerId)
             }
         } else {
             for(start; start >= 1; start--) {
