@@ -31,7 +31,7 @@ function postpone(start, end, delay) {
                 console.log(i);
             }
         } else {
-            for(start; start >= 1; start--) {
+            for(start; start >= end; start--) {
                console.log(start)
             }
         }
