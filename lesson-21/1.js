@@ -16,7 +16,7 @@
 
 // Решение
 
-const isCustomerVerified = (obj) => {   
+const isCustomerVerified = (obj) => {
     return new Promise((resolve, reject) => {
         if(obj.verified) {
             resolve(true)
@@ -38,7 +38,7 @@ const personSecond = {
 isCustomerVerified(personFirst)
     .then(status => console.log(status)) // true
     .catch(error => console.log(error))
-    
+
 isCustomerVerified(personSecond)
     .then(status => console.log(status))
     .catch(error => console.log(error)) // Customer is not verified
